@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ejs-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ejs
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ejs
+    spec:
+      containers:
+      - name: ejs
+        image: easzlab.io.local:5000/eles/ejs:latest
+        ports:
+        - containerPort: 3000
